@@ -1,0 +1,20 @@
+<Button #openModalId type="button" class="btn btn-psecondary" data-bs-toggle="modal" data-bs-target="#formModal">
+</Button>
+
+
+  <div  class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="formModalLabel">{{title}}</h5>
+          <button #closeModalId type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ng-content></ng-content>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

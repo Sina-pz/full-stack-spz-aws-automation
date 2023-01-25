@@ -1,0 +1,16 @@
+<div class="chat-container d-flex flex-column bd-highligh">
+  <h2>How can we help you?</h2>
+  <label for="messageFCtrl"> </label>
+  <textarea placeholder="Type Your Message Here" [formControl]="messageFCtrl"></textarea>
+
+  <div class="align-self-end">
+    <button  type="button" class="btn btn-secondary" (click)="submitMsg()">Send Message</button>
+    <button type="button" class="btn btn-secondary ml-custom"
+      
+    (click)="closeChatViaParent()">
+      Close Chat
+    </button>
+  </div>
+</div>
+
+<!-- [routerLink]="['../', { outlets: { chat: null } }]" -->

@@ -1,0 +1,41 @@
+      <app-loading></app-loading>
+      <!-- second loading with separate instance at edit component level -->
+      <form class="needs-validation" novalidate [formGroup]="form">
+          <div class="mb-3">
+            <label for="description" class="form-label">Course Description</label>
+            <input type="text" class="form-control" [ngClass]="description.dirty ? (description.invalid ? 'is-invalid' : 'is-valid') : ''" id="description" formControlName="description">
+            <ng-container *ngIf="description.touched && description.dirty">
+                <div class="invalid-feedback " *ngIf="description.errors?.required">  The description is mandatory. </div>
+            </ng-container>
+          </div>
+          <div class="mb-3">
+            <select class="form-select form-select-lg mb-3 text-secondary fs-4" [ngClass]="category.dirty ? (category.invalid ? 'is-invalid' : 'is-valid') : '' " aria-label="form-select-lg example" formControlName="category">
+              <option value="'BEGINNER'">Beginner</option>
+              <option value="'ADVANCED'">Advanced</option>
+            </select>
+            <ng-container *ngIf="category.touched && category.dirty">
+              <div class="invalid-feedback " *ngIf="category.errors?.required">  The category is mandatory. </div>
+            </ng-container>
+        
+            <div class="mb-3">
+              <label for="date">Date</label>
+              <input id="date" class="form-control" type="date" formControlName="releaseAt"/>
+              <span id="dateSelected"></span>
+              <ng-container *ngIf="releaseAt.touched && releaseAt.dirty">
+                <div class="invalid-feedback" *ngIf="releaseAt.errors?.required">  The date is mandatory. </div>
+              </ng-container>
+            </div>
+            <div class="mb-3">
+              <label for="longDescription" class="form-label">Course Detail</label>
+              <input type="text" class="form-control" id="longDescription" formControlName="longDescription">
+            </div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-secondary" (click)="onClose()"> Close</button>
+            <button class="btn btn-primary ml-custom" type="button" (click)="submit(form)" [disabled]="form.invalid || !form.touched"> Save</button>
+          </div> 
+    </form>
+
+
+
+    

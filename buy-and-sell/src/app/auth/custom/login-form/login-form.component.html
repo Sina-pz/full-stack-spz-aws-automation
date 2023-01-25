@@ -1,0 +1,32 @@
+<form class="needs-validation" novalidate [formGroup]="form">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control" [ngClass]="email.dirty ? (email.invalid ? 'is-invalid' : 'is-valid') : ''" id="email" placeholder="name@example.com" formControlName="email">
+    <ng-container *ngIf="email.touched && email.dirty">
+        <div class="valid-feedback"> </div>
+        <div class="invalid-feedback " *ngIf="email.errors?.required">  The email is mandatory. </div>
+        <div class="invalid-feedback " *ngIf="email.errors?.email">  The email address is not valid. </div>
+    </ng-container>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input  class="form-control" [ngClass]="password.dirty ? (password.invalid ? 'is-invalid' : 'is-valid') : '' " id="password" formControlName="password">
+    <ng-container *ngIf="password.touched && password.dirty">
+     <div class="valid-feedback"> </div>
+     <ng-container *ngIf="password.errors | onlyOneError: ['required', 'minLength', 'passwordStrength'] as error">
+     <div class="invalid-feedback" *ngIf="password.errors?.required">  The password is mandatory. </div>
+     <div class="invalid-feedback" *ngIf="password.errors?.minLength">  The password length should be more that 8 digit. </div>
+     <div class="invalid-feedback" *ngIf="password.errors?.passwordStrength">  Your pass must have loweCase, upper case and numerical character </div>
+    </ng-container>
+    </ng-container>
+  </div>
+  <div class="d-flex justify-content-end">
+    <button type="button" class="btn btn-secondary" (click)="onClose()"> Close</button>
+    <button class="btn btn-primary ml-custom" type="submit" (click)="submit(form)" [disabled]="form.invalid || !form.touched"> Login</button>
+  </div>
+</form >
+
+<!-- <div *ngIf="name.invalid && (name.dirty || name.touched)"
+    class="alert"> 
+  and put errors inside -->
+    

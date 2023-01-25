@@ -1,0 +1,11 @@
+.fa-coffee {
+  color: rgb(184, 14, 14);
+}
+.menu-item {
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.menu-item.menu-item-active {
+  text-decoration: underline;
+}

@@ -1,0 +1,26 @@
+<div id="page-wrap">
+    <div id="max-width-column">
+        <div class="header-container">
+            <app-nav-bar (loggedInUser)="onLogin($event)">
+            </app-nav-bar>
+        </div>
+
+        <!-- <div id="top-bar">
+            <a routerLink="/listings">
+                <h1 id="app-heading">Buy And Sell</h1>
+            </a>
+            <a routerLink="/my-listings">
+                <button id="my-listings-button">My Listings</button>
+            </a>
+        </div> -->
+        <div id="content-wrap">
+            <app-err-message></app-err-message>
+            <app-loading [detectRoutingOnGoing]="true"></app-loading>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+<router-outlet name="chat"></router-outlet>
+
+

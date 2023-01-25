@@ -1,0 +1,29 @@
+<h3 class="mt-3">{{title}}</h3>
+
+<table class="table" *ngIf="searchResult$ | async as items">
+  <thead>
+    <th scope="col">#</th>
+    <th scope="col">Description</th>
+    <th scope="col">Duration</th>
+  </thead>
+  <tbody>
+  <tr
+    class="lesson-row cursor-pointer"
+    *ngFor="let item of items"
+  >
+  <!-- [routerLink]="['lessons', lesson.seqNo]" -->
+    <th scope="row">
+      <!-- {{ lesson.seqNo }} -->
+    </th>
+    <!-- <td class="description-cell">{{ lesson.description }}</td>
+    <td class="duration-cell">{{ lesson.duration }}</td> -->
+  </tr>
+  </tbody>
+</table>
+
+<ng-container *ngIf="!activeLesson; else detail">
+  <!-- search -->
+</ng-container>
+<ng-template #detail>
+  <!-- show lesson detail -->
+</ng-template>

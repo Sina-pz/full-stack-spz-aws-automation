@@ -1,0 +1,16 @@
+<ng-container *ngIf="courses">
+<div class="card mb-2" *ngFor="let course of courses">
+  <div class="card-body">
+    <h5 class="card-title">{{course.description}}</h5>
+    <p class="card-text">{{course.longDescription}}</p>
+  </div>
+  <img [src]="course.iconUrl" class="card-img-bottom" alt="Not Loaded">
+  <div class="d-flex justify-content-center">
+    <a href="#" class="btn btn-primary pr-2 mr-2" [routerLink]="[course.url]" [queryParams]="{couponCode: 'NEW_YEAR'}">VIEW COURSE</a>
+    <a class="btn btn-primary pl-2 ml-2" (click)="onEdit(course)">EDIT</a>
+  </div>
+</div>
+</ng-container>
+
+
+

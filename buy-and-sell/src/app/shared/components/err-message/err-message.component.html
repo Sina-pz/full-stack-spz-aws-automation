@@ -1,0 +1,11 @@
+<ng-container *ngIf="errMessages$ | async as messages">
+  <div class="container-fluid d-flex flex-column bg-light border my-3" *ngIf="showMessages">
+    <!-- <button type="button " class="bg-secondary  align-items-start close custom-size ml-auto" aria-label="Close" (click)="close()"> -->
+    <div aria-hidden="true" class="cursor-pointer fs-2 ml-auto my-0 py-0" aria-label="Close" (click)="close()">&times;</div>
+    <!-- </button> -->
+  <div class="text-danger fw-bolder" *ngFor=" let message of messages ">
+    {{message}}
+  </div>
+
+</div>
+</ng-container>

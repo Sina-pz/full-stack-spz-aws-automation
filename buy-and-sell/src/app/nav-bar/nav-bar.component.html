@@ -1,0 +1,42 @@
+<nav class="navbar navbar-light bg-light justify-content-start">
+      <a class="navbar-brand mr-3" >
+        <i class="fa fa-coffee fa-lg" aria-hidden="true"></i>
+        <!-- <span class=" menu-item fw-bolder"
+              routerLinkActive="menu-item-active"> Angular </span>  -->
+      </a>
+      <a class="nav-link active fw-bolder menu-item" aria-current="page" routerLink="/home"
+      routerLinkActive="menu-item-active">Home</a>
+      <a class="nav-link active fw-bolder menu-item ml-custom" aria-current="page" routerLink="/listings"
+      routerLinkActive="menu-item-active">Listings</a>
+      <a class="nav-link active ml-custom fw-bolder menu-item" aria-current="page" routerLink="/routers/courses"
+      routerLinkActive="menu-item-active"
+      [routerLinkActiveOptions]="{ exact: true }">Courses</a>
+      <i class="fa fa-question-circle-o fa-lg ml-custom" aria-hidden="true" data-bs-toggle="tooltip" data-bs-placement="top" title="Help?" [routerLink]="[{outlets: {chat: ['helpdesk-chat']}}]"></i>
+      <div class="d-flex flex-row align-items-center cursor-pointer menu-item" >
+            <i class="fa fa-user-circle fa-lg" aria-hidden="true"></i>
+            <span class="ml-custom fw-bolder"
+            routerLinkActive="menu-item-active"
+            *ngIf="authStore.isLoggedIn$ | async" (click)="onClickToLogOut()">Logout</span>
+            <span class="ml-custom fw-bolder"
+            routerLinkActive="menu-item-active"
+            *ngIf="authStore.isLoggedOut$ | async" (click)="onClickToLogIn()">Login</span>
+      </div>
+
+</nav>
+  <div [ngClass]="modalConfig.toOpen ?  'd-none' : '' "> 
+<app-form-modal [modalConfig]="modalConfig">
+    <app-login-form (submittedForm)="onSubmit($event)" (close)="onLoginFormClose()"></app-login-form>
+</app-form-modal>
+  </div>  
+
+
+
+
+
+
+
+
+  
+  
+
+
