@@ -1,7 +1,3 @@
-import { filter } from 'rxjs/operators';
-import { RouterTestingModule } from '@angular/router/testing';
-import { async } from '@angular/core/testing';
-import { MessageStoreService } from './../app/services/stores/msgStore.service';
 // 1: if we add a service in provider of specific component {useClass = name of service} just that component and its direct descendant have access to it
 // single tone!: if we want to use a shared component in the different feature and location we need to have different instance of service as well @Injectable({}). otherwise we can use @Injectable({
 //  provideIn: 'root' }) with root argument
@@ -47,4 +43,5 @@ import { MessageStoreService } from './../app/services/stores/msgStore.service';
 //  command to stat the server  : build-and-deploy:prod
 // location of server http://localhost:4200
 
-//
+// error after npm run e2e :
+// <base href="/"> =>>  <base href="./">
